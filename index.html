@@ -1,0 +1,59 @@
+<html>
+	<head> 
+		<title>Saigon Berry</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<style>
+
+		@font-face {
+			font-family: 'Press Start 2P';
+			src: url('./PressStart2P-Regular.ttf');
+		}
+		@font-face {
+		    font-family: 'FlappyBirdy';
+		    src: url('./FlappyBirdy.ttf');
+		}
+
+		</style>
+	</head>
+	<body>
+		<div style="margin:20px auto;text-align: center;">
+			<canvas id="canvas" height=500 width=400 style="border:2px solid black; ">
+			</canvas>
+		</div>	
+		<audio id="jump-sound">
+			<source src="./jump.wav" type="audio/wav">
+		</audio>
+
+		<audio id="score-sound">
+			<source src="./score.wav" type="audio/wav">
+		</audio>
+
+		<audio id="powerup-sound">
+			<source src="./powerup.wav" type="audio/wav">
+		</audio>
+
+		<script type="text/javascript" src="./input.js"></script>
+		<script type="text/javascript" src="./TextBlock.js"></script>
+		<script type="text/javascript" src="./SoundManager.js"></script>
+		<script type="text/javascript" src="./HighScoreManager.js"></script>
+		<script type="text/javascript" src="./powercube.js"></script>
+		<script type="text/javascript" src="./menu.js"></script>
+		<script type="text/javascript" src="./menus.js"></script>
+		<script type="text/javascript" src="./bird.js"></script>
+		<script type="text/javascript" src="./pipe.js"></script>
+		<script type="text/javascript" src="./game.js"></script>
+		<script type="text/javascript">
+			if('serviceWorker' in navigator){
+				navigator.serviceWorker.register("./sw.js", {scope: "/saigon-berry/"})
+					.then(function(registration){
+						console.log("Service Worker Registered");
+				});
+				navigator.serviceWorker.ready.then(function(registration){
+					console.log("Service Worker ready");
+				});
+			}
+		</script>	
+	</body>
+</html>
